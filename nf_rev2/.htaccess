@@ -1,0 +1,33 @@
+Options +SymLinksIfOwnerMatch -MultiViews
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+#If your website is installed in a subfolder, change the line below to reflect the path to the subfolder.
+#e.g. for http://www.example.com/subdomain1/subdomain2/ make it RewriteBase /subdomain1/subdomain2
+RewriteBase /dev/couch
+
+#If you wish to use a custom 404 page, place a file named 404.php in your website's root and uncomment the line below.
+#If your website is installed in a subfolder, change the line below to reflect the path to the subfolder.
+#e.g. for http://www.example.com/subdomain1/subdomain2/ make it ErrorDocument 404 /subdomain1/subdomain2/404.php
+#ErrorDocument 404 /404.php
+
+#If your site begins with 'www', uncomment the following two lines
+RewriteCond %{HTTP_HOST} !^www\.
+RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+
+
+#DO NOT EDIT BELOW THIS
+
+
+RewriteCond %{REQUEST_FILENAME} -d [OR]
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule . - [L]
+
+#projects.php
+RewriteRule ^projects$ "$0/" [R=301,L,QSA]
+RewriteRule ^projects/$ projects.php [L,QSA]
+RewriteRule ^projects/.*?([^\.\/]*)\.html$ projects.php?pname=$1 [L,QSA]
+RewriteRule ^projects/([1-2]\d{3})/(?:(0[1-9]|1[0-2])/(?:(0[1-9]|1[0-9]|2[0-9]|3[0-1])/)?)?$ projects.php?d=$1$2$3 [L,QSA]
+RewriteRule ^projects/[^\.]*?([^/\.]*)/$ projects.php?fname=$1 [L,QSA]
+RewriteRule ^projects/[^\.]*?([^/\.]*)$ "$0/" [R=301,L,QSA]
+</IfModule>
