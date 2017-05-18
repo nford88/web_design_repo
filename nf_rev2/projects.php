@@ -1,7 +1,10 @@
 <?php require_once( 'couch/cms.php' ); ?>
 <cms:template title='Projects' clonable='1'>
-<cms:editable name="title_content" type='richtext'> </cms:editable>
-<cms:editable name="main_content" type='richtext'> </cms:editable>
+    <cms:editable name="main_image" type='image'> </cms:editable>
+    <cms:editable name="main_content" type='richtext'> </cms:editable>
+        <cms:repeatable name="skills">
+            <cms:editable name="skills_tag" type='text'> </cms:editable>
+        </cms:repeatable>
 </cms:template>
 
 <!DOCTYPE html>
@@ -10,8 +13,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='https://fonts.googleapis.com/css?family=Raleway:500,300,700,800' rel='stylesheet' type='text/css'>
     <link rel="shortcut icon" type="../image/icp" href="images/favicon.ico"/>
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet" >
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet" >
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
@@ -26,32 +29,43 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">NICK<strong>FORD</strong></a>
+            <a class="navbar-brand" href="index.php">NICK<strong>FORD</strong></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="index.html#portfolio">Portfolio</a></li>
-            <li><a href="index.html#skills">Skills</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-            <li><a href="blog.html">Blog</a></li>
+                <li><a href="index.php#about">About</a></li>
+                <li><a href="index.php#portfolio">Projects</a></li>
+                <li><a href="index.php#skills">Skills</a></li>
+                <li><a href="index.php#contact">Contact</a></li>
+                <li><a href="blog.html">Blog</a></li>
         </ul>  
     </div><!-- /.navbar-collapse -->
 </div> <!-- /.container-fluid -->
 </nav>
 </div>
 
-<div class="bottom-wrapper anchor">
+ <cms:if k_is_page >
+ <div class="bottom-wrapper anchor">
     <div class="section blue-bg">
         <div class="section-content">
 
             <div class="title">
-                <h1><cms:show title_content /></h1>
+                <h1><a href="<cms:show k_page_link />" style="color: inherit;"><cms:show k_page_title /></a></h1>
             </div>
-        </div>
+            <div class="content">
+                <div class="dual-col img-col">
+                    <img src="<cms:show main_image />">
+                </div>
+                <div class="dual-col img-col">
+                    <cms:show_repeatable 'skills'>
+                        <div class="tag"><cms:show skills_tag /></div>
+                    </cms:show_repeatable>
+            </div>
+        </div> 
     </div>
+</div>
 
 
     <div class="section white-bg">
@@ -60,14 +74,15 @@
                 <h1>About</h1>
             </div>
 
+
             <div class="content content-piece">
                 <div class="sub-cont" >
-                 <cms:show main_content /> 
-             </div>
-         </div>
+                   <cms:show main_content /> 
+               </div>
+           </div>
 
-     </div>
- </div>
+       </div>
+   </div>
 </div>
 
 
@@ -78,4 +93,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
+<cms:else />
+    <h1>Testy I wanna test my page test test hell yeah!</h1>
+ </cms:if> 
 <?php COUCH::invoke(); ?>
