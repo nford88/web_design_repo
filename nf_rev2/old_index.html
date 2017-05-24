@@ -1,5 +1,3 @@
-<?php require_once( 'couch/cms.php' ); ?>
-
 <!DOCTYPE html>
 <head>
     <title>Nick Ford - Web Developer</title>
@@ -10,7 +8,6 @@
     <link href="css/font-awesome.min.css" rel="stylesheet" >
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 </head>
-    
 <body>
 
     <div class="wrapper">
@@ -24,16 +21,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">NICK<strong>FORD</strong></a>
+                <a class="navbar-brand" href="index.html">NICK<strong>FORD</strong></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="index.php#about">About</a></li>
-                <li><a href="index.php#portfolio">Projects</a></li>
-                <li><a href="index.php#skills">Skills</a></li>
-                <li><a href="index.php#contact">Contact</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#portfolio">Projects</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
                 <li><a href="blog.html">Blog</a></li>
             </ul>  
         </div><!-- /.navbar-collapse -->
@@ -109,23 +106,61 @@
 <div class="section blue-bg anchor" id="portfolio" style="border-bottom: 1px solid #eee;">
     <div class="section-content wow fadeInUp">
         <div class="title">
-            <h1>MY WORKS</h1>
+            <h1>Projects</h1>
             <img src="images/computer.png" width="40px" alt="computer icon">
         </div>
 
-
         <div class="content">
-
             <div>
-             <cms:pages masterpage='projects.php' >
                 <div class="dual-col img-col">
-                    <a href="<cms:show k_page_link />"><img src="<cms:show main_image />"></a>
-                    <h2><cms:show k_page_title /></h2>
-                    <cms:show_repeatable 'skills'>
-                        <div class="tag"><cms:show skills_tag /></div>
-                    </cms:show_repeatable>
+                    <a href="http://placehold.it"><img src="images/mockup-ag.jpg"></a>
+                    <h2>AG Associates.com</h2>
+                    <div class="tag">PHP</div>
+                    <div class="tag">HTML</div>
+                    <div class="tag">MySQL</div>
+                    <div class="tag">CSS</div>
                 </div>
-            </cms:pages>
+                <div class="dual-col img-col">
+                    <a href="http://placehold.it"><img src="http://placehold.it/1000x600"></a>
+                    <h2>David Chu's China Bistro</h2>
+                    <div class="tag">HTML</div>
+                    <div class="tag">CSS</div>
+                    <div class="tag">JS</div>
+                    <div class="tag">Ajax</div>
+                </div>
+                <div class="dual-col img-col">
+                    <a href="http://placehold.it"><img src="http://placehold.it/1000x600"></a>
+                    <h2>Minstant Messenger</h2>
+                    <div class="tag">Meteor</div>
+                    <div class="tag">HTML</div>
+                    <div class="tag">node.js</div>        
+                    <div class="tag">CSS</div>
+                    <div class="tag">MongoDB</div>
+                </div>
+                <div class="dual-col img-col">
+                    <a href="http://placehold.it"><img src="http://placehold.it/1000x600"></a>
+                    <h2>TextEdit</h2>
+                    <div class="tag">Meteor</div>
+                    <div class="tag">HTML</div>
+                    <div class="tag">node.js</div>        
+                    <div class="tag">CSS</div>
+                    <div class="tag">MongoDB</div>
+                </div>                        
+                <div class="dual-col img-col">
+                    <a href="http://placehold.it"><img src="http://placehold.it/1000x600"></a>
+                    <h2>AG Associates.com</h2>
+                    <div class="tag">SCSS</div>
+                    <div class="tag">HTML</div>
+                </div>
+                <div class="dual-col img-col">
+                    <a href="http://placehold.it"><img src="http://placehold.it/1000x600"></a>
+                    <h2>Dear Carrie</h2>
+                    <div class="tag">HTML</div>
+                    <div class="tag">CSS</div>
+                    <div class="tag">JS</div>
+                    <div class="tag">PHP</div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -310,4 +345,3 @@
 
 
 </html>
-<?php COUCH::invoke(); ?>
