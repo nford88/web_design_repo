@@ -1,0 +1,93 @@
+
+
+<cms:if k_is_commentable >
+	
+	<div class="comment-form" >
+		<h3>Post a comment</h3>
+
+		<cms:form method="post" class="k_form">
+
+			<cms:if k_success >
+		   
+				<cms:process_comment />
+
+				<cms:if k_process_comment_success>
+					<cms:send_mail from=k_email_from to=k_email_to subject='Comment posted'>
+						The following comment has been posted at your site:
+						<cms:show k_success />
+					</cms:send_mail>
+					   
+					<div class="k_successmessage">
+						<p>
+							Thank you for the feed back! <br>
+							Your comment awaits moderation and will be published as soon as reviewed by the Admin.
+						</p>
+					</div>
+
+				<cms:else />
+					<div class="k_errormessage">
+						<p>
+							Could not post comment! <br>
+							The following error occured while processing your comment:<br>
+							<cms:show k_process_comment_error />
+						</p>
+					</div>
+			   
+				</cms:if>
+			   
+			<cms:else />
+		   
+				<cms:if k_error >
+					<div class="k_errormessage">
+						<h2>Fields incomplete!</h2>
+						<ul>
+							<cms:each k_error >
+								<li><cms:show item /></li>
+							</cms:each>
+						</ul>
+					</div>
+				</cms:if>
+			   
+				<cms:if k_logged_out >
+					<div class="col-md-6 form-group">
+						<cms:input type="text" name="k_author" class="form-control" placeholder="Name"/>
+						<label for="author" class="sr-only">Name</label>
+					</div>
+
+					<div class="col-md-6 form-group">
+						<cms:input type="text" class="form-control" name="k_email" validator="email" required="1" placeholder="Email"/>
+						<label class="sr-only" for="email">Email</label>
+					</div>
+
+				<cms:else />
+					<p>
+						Logged in as <b><cms:show k_user_title /></b>.
+						<a href="<cms:show k_logout_link />" onclick="if( confirm('Are you sure you want to logout?') ) { return true; } return false;">Logout &raquo;</a>
+					</p>
+				</cms:if>
+			  
+
+				<div class="col-md-12 form-group">
+					<cms:input type="textarea" class="form-control" id="comment" name="k_comment" validator_msg="required=Please enter something as comment" required="1" placeholder="Comment"/>
+				</div>
+
+<!-- 				<cms:if k_logged_out >
+					<div class="col-md-2 form-group captcha right">
+						<cms:input type="captcha" name="captcha" format='r-i-t' />
+					<div>
+				</cms:if> -->
+
+
+				<div class="col-md-2 form-group"> 
+				   	<cms:input type="submit"  name="submit" class="btn btn-default" value="Submit Button" />
+				</div>
+
+			</cms:if>
+
+
+				
+		</cms:form>
+		
+		</div>
+	</div>
+</cms:if>
