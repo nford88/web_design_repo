@@ -30,10 +30,10 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="index.php#about">About</a></li>
-                <li><a href="index.php#portfolio">Projects</a></li>
-                <li><a href="index.php#skills">Skills</a></li>
-                <li><a href="index.php#contact">Contact</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
                 <li><a href="blog.html">Blog</a></li>
             </ul>  
         </div><!-- /.navbar-collapse -->
@@ -50,9 +50,12 @@
             </div>
             <p>Tackling the world's problems one line of code at a time</p>
             <div id="social">
-                <a target="_blank" href="#" class="btn-rounded-white"><i class="fa fa-envelope-o"></i></a>
+                <a target="_blank" href="mailto:nford.work@gmail.com" class="btn-rounded-white"><i class="fa fa-envelope-o"></i></a>
+                <a target="_blank" href="NickFordDevCV250517.pdf" class="btn-rounded-white"><i class="fa fa-file-o"></i></a>
                 <a target="_blank" href="https://github.com/nford88" class="btn-rounded-white"><i class="fa fa-github"></i></a>
-                <a target="_blank" href="https://www.linkedin.com/in/nickford2" class="btn-rounded-white"><i class="fa fa-linkedin"></i></a>
+                <a target="_blank" href="https://www.linkedin.com/in/nickford2" class="btn-rounded-white"><i class="fa fa-linkedin">
+                    
+                </i></a>
             </div>
         </div>
     </div><!-- ./main -->
@@ -66,22 +69,13 @@
             </div>
             <div class="content">
                 
-                <h2>What I say...</h2>
+                <h2 class="about-title">What I say...</h2>
 
-                <div class="dual-col">
-                    <p> I'm always keen to learn new things which make your products awesome.<br/>
-                        I like challenges, so don't worry if your requirements are niche.<br/>
-                        Originally from the UK but now <s>hiding</s> residing in Dublin.<br/> 
-                    </br>Available for contracting & remote freelance work.</p>
-                </div>
-                <div class="dual-col">
-                    <p> I'm always keen to learn new things which make your products awesome.<br/>
-                        I like challenges, so don't worry if your requirements are niche.<br/>
-                        Originally from the UK but now <s>hiding</s> residing in Dublin.<br/> 
-                    </br>Available for contracting & remote freelance work.</p>
-                </div>
+                <p> I'm Nick, a junior full stack developer and always keen to learn new things to make your product great. I like challenges, so don't worry if your requirements are niche. I've worked on several freelance projects but particularly looking torwards contract or permenant work at present. Originally from the UK but now <s>hiding</s> residing in Dublin.<br/> 
+                
 
-                <h2>What they say...</h2>
+                
+                <h2 class="about-title-padd">What they say...</h2>
 
                 <div class="dual-col img-col logo">
                     <a target="_blank" href="http://www.agassociates.ie/">
@@ -286,6 +280,7 @@
                         </h2><br/>
                         <div id="social">
                             <a target="_blank" href="mailto:nford.work@gmail.com" class="btn-rounded-blue"><i class="fa fa-envelope-o"></i></a>
+                            <a target="_blank" href="NickFordDevCV250517.pdf" class="btn-rounded-blue"><i class="fa fa-file-o"></i></a>
                             <a target="_blank" href="https://github.com/nford88" class="btn-rounded-blue"><i class="fa fa-github"></i></a>
                             <a target="_blank" href="https://www.linkedin.com/in/nickford2" class="btn-rounded-blue"><i class="fa fa-linkedin"></i></a>
                         </div>
